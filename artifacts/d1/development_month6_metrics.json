@@ -1,0 +1,44 @@
+{
+  "at_threshold_0_5": {
+    "fn": 1387,
+    "fp": 49,
+    "fpr": 0.0004591540321220413,
+    "precision": 0.5625,
+    "recall": 0.043448275862068966,
+    "review_rate": 0.001035426373788921,
+    "specificity": 0.999540845967878,
+    "threshold": 0.5,
+    "tn": 106669,
+    "tp": 63,
+    "tpr": 0.043448275862068966
+  },
+  "converged": true,
+  "fit_seconds": 9.871457207991625,
+  "month": 6,
+  "n_iter": [],
+  "n_positives": 1450,
+  "n_rows": 108168,
+  "operating_point_fpr_le_max": {
+    "fn": 704,
+    "fp": 5296,
+    "fpr": 0.04962611743098634,
+    "max_fpr": 0.05,
+    "precision": 0.1234690499834492,
+    "recall": 0.5144827586206897,
+    "review_rate": 0.05585755491457733,
+    "rule": "Maximise TPR subject to FPR <= max_fpr; ties broken by lowest FPR then highest threshold. Literature-linked experimental benchmark, not a real-bank tolerance.",
+    "specificity": 0.9503738825690137,
+    "threshold": 0.04724566638469696,
+    "tn": 101422,
+    "tp": 746,
+    "tpr": 0.5144827586206897
+  },
+  "predict_seconds": 0.14119195900275372,
+  "split": "development",
+  "threshold_independent": {
+    "auprc": 0.17359263834049857,
+    "auroc": 0.8920536786929911,
+    "brier_score": 0.012023118488059968
+  },
+  "variant": "xgboost_challenge_final"
+}

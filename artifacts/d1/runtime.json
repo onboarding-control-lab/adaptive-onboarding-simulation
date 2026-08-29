@@ -1,0 +1,7 @@
+{
+  "converged": true,
+  "fit_seconds": 9.871457207991625,
+  "n_iter": [],
+  "predict_seconds": 0.14119195900275372,
+  "variant": "xgboost_challenge_final"
+}

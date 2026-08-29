@@ -1,0 +1,1162 @@
+{
+  "fields": {
+    "bank_branch_count_8w": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "integer",
+      "domain_mode": "preserve_anchor",
+      "feature": "bank_branch_count_8w",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 2404.0
+    },
+    "bank_months_count": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "integer",
+      "domain_mode": "preserve_anchor",
+      "feature": "bank_months_count",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        },
+        {
+          "type": "sentinel_retain_anchor_only"
+        }
+      ],
+      "lower_bound": -1.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "retain_anchor_only",
+      "sentinel_spec": {
+        "kind": "values",
+        "values": [
+          -1
+        ]
+      },
+      "upper_bound": 32.0
+    },
+    "credit_risk_score": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "integer",
+      "domain_mode": "preserve_anchor",
+      "feature": "credit_risk_score",
+      "governance_status": "frozen_project_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": -191.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 389.0
+    },
+    "current_address_months_count": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed_if_episode_locked",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "integer",
+      "domain_mode": "bounded_train_support",
+      "feature": "current_address_months_count",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "episode_lock_on_first_submission"
+        },
+        {
+          "type": "sentinel_retain_anchor_only"
+        },
+        {
+          "compiled_ranges": [
+            {
+              "conditions": {
+                "customer_age": 10.0
+              },
+              "max": 425.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 20.0
+              },
+              "max": 425.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 30.0
+              },
+              "max": 414.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 40.0
+              },
+              "max": 410.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 50.0
+              },
+              "max": 418.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 60.0
+              },
+              "max": 394.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 70.0
+              },
+              "max": 394.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 80.0
+              },
+              "max": 389.0,
+              "min": 0.0
+            },
+            {
+              "conditions": {
+                "customer_age": 90.0
+              },
+              "max": 386.0,
+              "min": 0.0
+            }
+          ],
+          "condition_binning": {
+            "customer_age": 10
+          },
+          "condition_fields": [
+            "customer_age"
+          ],
+          "type": "conditional_train_range"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "retain_anchor_only",
+      "sentinel_spec": {
+        "kind": "values",
+        "values": [
+          -1
+        ]
+      },
+      "upper_bound": 425.0
+    },
+    "customer_age": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed_if_episode_locked",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "integer",
+      "domain_mode": "bounded_train_support",
+      "feature": "customer_age",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "episode_lock_on_first_submission"
+        }
+      ],
+      "lower_bound": 10.0,
+      "observed_support": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 90.0
+    },
+    "date_of_birth_distinct_emails_4w": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "integer",
+      "domain_mode": "preserve_anchor",
+      "feature": "date_of_birth_distinct_emails_4w",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 39.0
+    },
+    "days_since_request": {
+      "agent_action_mode": "none",
+      "agent_mutability": "not_applicable",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "float",
+      "domain_mode": "excluded",
+      "feature": "days_since_request",
+      "governance_status": "frozen_project_rule",
+      "hard_constraints": [
+        {
+          "type": "not_in_action_space"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 79.0
+    },
+    "device_distinct_emails_8w": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "integer",
+      "domain_mode": "preserve_anchor",
+      "feature": "device_distinct_emails_8w",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        },
+        {
+          "type": "sentinel_retain_anchor_only"
+        }
+      ],
+      "lower_bound": -1.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "retain_anchor_only",
+      "sentinel_spec": {
+        "kind": "values",
+        "values": [
+          -1
+        ]
+      },
+      "upper_bound": 2.0
+    },
+    "device_fraud_count": {
+      "agent_action_mode": "none",
+      "agent_mutability": "not_applicable",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "integer",
+      "domain_mode": "excluded",
+      "feature": "device_fraud_count",
+      "governance_status": "frozen_project_rule",
+      "hard_constraints": [
+        {
+          "type": "not_in_action_space"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 1.0
+    },
+    "device_os": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        "linux",
+        "macintosh",
+        "other",
+        "windows",
+        "x11"
+      ],
+      "attacker_visible": "yes",
+      "data_type": "categorical",
+      "domain_mode": "categorical_train_support",
+      "feature": "device_os",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        "linux",
+        "macintosh",
+        "other",
+        "windows",
+        "x11"
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "email_is_free": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "attacker_visible": "yes",
+      "data_type": "binary",
+      "domain_mode": "fixed_set",
+      "feature": "email_is_free",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        0,
+        1
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "employment_status": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed_if_episode_locked",
+      "allowed_values": [
+        "CA",
+        "CB",
+        "CC",
+        "CD",
+        "CE",
+        "CF",
+        "CG"
+      ],
+      "attacker_visible": "yes",
+      "data_type": "categorical",
+      "domain_mode": "categorical_train_support",
+      "feature": "employment_status",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "episode_lock_on_first_submission"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        "CA",
+        "CB",
+        "CC",
+        "CD",
+        "CE",
+        "CF",
+        "CG"
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "foreign_request": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "attacker_visible": "yes",
+      "data_type": "binary",
+      "domain_mode": "fixed_set",
+      "feature": "foreign_request",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        0,
+        1
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "fraud_bool": {
+      "agent_action_mode": "none",
+      "agent_mutability": "not_applicable",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "attacker_visible": "no",
+      "data_type": "binary",
+      "domain_mode": "excluded",
+      "feature": "fraud_bool",
+      "governance_status": "frozen_project_rule",
+      "hard_constraints": [
+        {
+          "type": "not_in_action_space"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [
+        0,
+        1
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 1.0
+    },
+    "has_other_cards": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "attacker_visible": "yes",
+      "data_type": "binary",
+      "domain_mode": "preserve_anchor",
+      "feature": "has_other_cards",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        0,
+        1
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "housing_status": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed_if_episode_locked",
+      "allowed_values": [
+        "BA",
+        "BB",
+        "BC",
+        "BD",
+        "BE",
+        "BF",
+        "BG"
+      ],
+      "attacker_visible": "yes",
+      "data_type": "categorical",
+      "domain_mode": "categorical_train_support",
+      "feature": "housing_status",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "episode_lock_on_first_submission"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        "BA",
+        "BB",
+        "BC",
+        "BD",
+        "BE",
+        "BF",
+        "BG"
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "income": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "float",
+      "domain_mode": "bounded_train_support",
+      "feature": "income",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": 0.1,
+      "observed_support": [
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6000000000000001,
+        0.7000000000000001,
+        0.8,
+        0.9
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 0.9
+    },
+    "intended_balcon_amount": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "float",
+      "domain_mode": "bounded_train_support",
+      "feature": "intended_balcon_amount",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "sentinel_retain_anchor_only"
+        }
+      ],
+      "lower_bound": 0.0001807800022068,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "retain_anchor_only",
+      "sentinel_spec": {
+        "kind": "predicate",
+        "operator": "lt",
+        "value": 0
+      },
+      "upper_bound": 112.9569276953714
+    },
+    "keep_alive_session": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "attacker_visible": "yes",
+      "data_type": "binary",
+      "domain_mode": "fixed_set",
+      "feature": "keep_alive_session",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        0,
+        1
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "month": {
+      "agent_action_mode": "none",
+      "agent_mutability": "not_applicable",
+      "allowed_values": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "attacker_visible": "no",
+      "data_type": "integer",
+      "domain_mode": "excluded",
+      "feature": "month",
+      "governance_status": "frozen_project_rule",
+      "hard_constraints": [
+        {
+          "type": "not_in_action_space"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 7.0
+    },
+    "name_email_similarity": {
+      "agent_action_mode": "proxy_action",
+      "agent_mutability": "allowed",
+      "allowed_values": [],
+      "attacker_visible": "proxy_only",
+      "data_type": "float",
+      "domain_mode": "proxy_action",
+      "feature": "name_email_similarity",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "no_direct_value"
+        }
+      ],
+      "lower_bound": 1.4345504845275636e-06,
+      "observed_support": [],
+      "proxy_action_key": "name_email_alignment",
+      "proxy_seed": 20260801,
+      "resolved_proxy_actions": {
+        "high_alignment": 0.8123012923635984,
+        "low_alignment": 0.182016740516874,
+        "typical_alignment": 0.4997465015739429
+      },
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 0.9999993177937188
+    },
+    "payment_type": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        "AA",
+        "AB",
+        "AC",
+        "AD",
+        "AE"
+      ],
+      "attacker_visible": "yes",
+      "data_type": "categorical",
+      "domain_mode": "categorical_train_support",
+      "feature": "payment_type",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        "AA",
+        "AB",
+        "AC",
+        "AD",
+        "AE"
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "phone_home_valid": {
+      "agent_action_mode": "proxy_action",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "attacker_visible": "proxy_only",
+      "data_type": "binary",
+      "domain_mode": "proxy_action",
+      "feature": "phone_home_valid",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "no_direct_value"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [
+        0,
+        1
+      ],
+      "proxy_action_key": "home_phone_configuration",
+      "proxy_seed": 20260801,
+      "resolved_proxy_actions": {
+        "home_phone_unverified": 0,
+        "home_phone_verified": 1
+      },
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 1.0
+    },
+    "phone_mobile_valid": {
+      "agent_action_mode": "proxy_action",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        0,
+        1
+      ],
+      "attacker_visible": "proxy_only",
+      "data_type": "binary",
+      "domain_mode": "proxy_action",
+      "feature": "phone_mobile_valid",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "no_direct_value"
+        }
+      ],
+      "lower_bound": 0.0,
+      "observed_support": [
+        0,
+        1
+      ],
+      "proxy_action_key": "mobile_phone_configuration",
+      "proxy_seed": 20260801,
+      "resolved_proxy_actions": {
+        "mobile_phone_unverified": 0,
+        "mobile_phone_verified": 1
+      },
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 1.0
+    },
+    "prev_address_months_count": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed_if_episode_locked",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "integer",
+      "domain_mode": "bounded_train_support",
+      "feature": "prev_address_months_count",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "episode_lock_on_first_submission"
+        },
+        {
+          "type": "sentinel_retain_anchor_only"
+        },
+        {
+          "compiled_ranges": [
+            {
+              "conditions": {
+                "customer_age": 10.0
+              },
+              "max": 367.0,
+              "min": 7.0
+            },
+            {
+              "conditions": {
+                "customer_age": 20.0
+              },
+              "max": 373.0,
+              "min": 5.0
+            },
+            {
+              "conditions": {
+                "customer_age": 30.0
+              },
+              "max": 371.0,
+              "min": 6.0
+            },
+            {
+              "conditions": {
+                "customer_age": 40.0
+              },
+              "max": 377.0,
+              "min": 6.0
+            },
+            {
+              "conditions": {
+                "customer_age": 50.0
+              },
+              "max": 377.0,
+              "min": 6.0
+            },
+            {
+              "conditions": {
+                "customer_age": 60.0
+              },
+              "max": 362.0,
+              "min": 7.0
+            },
+            {
+              "conditions": {
+                "customer_age": 70.0
+              },
+              "max": 354.0,
+              "min": 8.0
+            },
+            {
+              "conditions": {
+                "customer_age": 80.0
+              },
+              "max": 346.0,
+              "min": 10.0
+            },
+            {
+              "conditions": {
+                "customer_age": 90.0
+              },
+              "max": 294.0,
+              "min": 10.0
+            }
+          ],
+          "condition_binning": {
+            "customer_age": 10
+          },
+          "condition_fields": [
+            "customer_age"
+          ],
+          "type": "conditional_train_range"
+        }
+      ],
+      "lower_bound": 5.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "retain_anchor_only",
+      "sentinel_spec": {
+        "kind": "values",
+        "values": [
+          -1
+        ]
+      },
+      "upper_bound": 377.0
+    },
+    "proposed_credit_limit": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "float",
+      "domain_mode": "bounded_train_support",
+      "feature": "proposed_credit_limit",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": 200.0,
+      "observed_support": [
+        1000.0,
+        1500.0,
+        190.0,
+        1900.0,
+        200.0,
+        2000.0,
+        210.0,
+        2100.0,
+        490.0,
+        500.0,
+        510.0,
+        990.0
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 2000.0
+    },
+    "session_length_in_minutes": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [],
+      "attacker_visible": "yes",
+      "data_type": "float",
+      "domain_mode": "bounded_train_support",
+      "feature": "session_length_in_minutes",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        },
+        {
+          "type": "sentinel_retain_anchor_only"
+        }
+      ],
+      "lower_bound": 0.0032623528255633,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "retain_anchor_only",
+      "sentinel_spec": {
+        "kind": "values",
+        "values": [
+          -1
+        ]
+      },
+      "upper_bound": 85.89914319274027
+    },
+    "source": {
+      "agent_action_mode": "raw_value",
+      "agent_mutability": "allowed",
+      "allowed_values": [
+        "INTERNET",
+        "TELEAPP"
+      ],
+      "attacker_visible": "yes",
+      "data_type": "categorical",
+      "domain_mode": "categorical_train_support",
+      "feature": "source",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "domain"
+        }
+      ],
+      "lower_bound": null,
+      "observed_support": [
+        "INTERNET",
+        "TELEAPP"
+      ],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "discrete_support",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": null
+    },
+    "velocity_24h": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "float",
+      "domain_mode": "preserve_anchor",
+      "feature": "velocity_24h",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": 1297.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 9586.0
+    },
+    "velocity_4w": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "float",
+      "domain_mode": "preserve_anchor",
+      "feature": "velocity_4w",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": 2825.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 7020.0
+    },
+    "velocity_6h": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "float",
+      "domain_mode": "preserve_anchor",
+      "feature": "velocity_6h",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": -175.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 16818.0
+    },
+    "zip_count_4w": {
+      "agent_action_mode": "none",
+      "agent_mutability": "forbidden",
+      "allowed_values": [],
+      "attacker_visible": "no",
+      "data_type": "integer",
+      "domain_mode": "preserve_anchor",
+      "feature": "zip_count_4w",
+      "governance_status": "frozen_attacker_rule",
+      "hard_constraints": [
+        {
+          "type": "anchor_equal"
+        }
+      ],
+      "lower_bound": 1.0,
+      "observed_support": [],
+      "proxy_action_key": null,
+      "proxy_seed": null,
+      "resolved_proxy_actions": {},
+      "sampling_kind": "continuous_bounds",
+      "sentinel_policy": "none",
+      "sentinel_spec": {},
+      "upper_bound": 6830.0
+    }
+  },
+  "policy_fingerprint": "177c7b9fec00f531932528ad4b77d7833a436b9e5705f89bf5045ff576d2ff16",
+  "policy_version": "attack-governance-v2.0.0",
+  "source_path": "config/attacker_feature_governance.csv",
+  "source_sha256": "19986094b450f7ac1e6d1f9e04d285d3c44fd04dbbdfce52ac425f9efe471946",
+  "support_fingerprint": "0091cb9b82f2a38c0bfbbef78d475b7239b600c068505bcb6d444f35cf05431a",
+  "support_months": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "support_rows": 794989,
+  "support_split": "train_months_0_5"
+}

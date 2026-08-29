@@ -1,0 +1,75 @@
+{
+  "algorithms_tested": [
+    "IsolationForest"
+  ],
+  "anomaly_score_definition": "d2s_v11_anomaly_score = -IsolationForest.score_samples(X)",
+  "attack_outcomes_used_for_fitting": false,
+  "attacker_outcomes_used": false,
+  "collapsed_relationships": {
+    "from": [
+      "C01",
+      "C14"
+    ],
+    "payment_channel": "max(C01, C14)"
+  },
+  "d1_artefact_id": "c1_pipeline_sha256_16=243c851b0c665c9c",
+  "d1_score_used": false,
+  "d1_unchanged": true,
+  "d2s_v10_fingerprint": "cfd5330f096dabb1749be447ee4da4d5f498d2599f4f22c24a0b706e570bfd94",
+  "d2s_v10_reference_path": "artifacts/d2s/d2s_reference.json",
+  "d2s_v10_reference_sha256": "1ca5677687ab45418a98f2bbab6237ca1ce18c00abd6485a4fb565be6e9ea26e",
+  "d2s_v10_unchanged": true,
+  "fitted_utc": "2026-08-16T21:42:09.494700+00:00",
+  "fraud_labels_used": false,
+  "hyperparameter_search": false,
+  "iforest_feature_ids": [
+    "payment_channel",
+    "C13",
+    "C09",
+    "C03",
+    "C10",
+    "C11",
+    "C15"
+  ],
+  "month7_opened": false,
+  "n_train": 786838,
+  "params": {
+    "bootstrap": false,
+    "contamination": "auto",
+    "max_features": 1.0,
+    "max_samples": 256,
+    "n_estimators": 500,
+    "n_jobs": -1,
+    "random_state": 20260816
+  },
+  "parent_score_contract_id": "d2s-v1.0.0-pairwise8-20260816",
+  "passthrough_relationships": [
+    "C13",
+    "C09",
+    "C03",
+    "C10",
+    "C11",
+    "C15"
+  ],
+  "predict_used_as_operating_rule": false,
+  "raw_application_features_used": false,
+  "recommendation": "FREEZE_CANDIDATE_D2S_V1_1_IFOREST",
+  "recommendation_reason": "Pooled 10% interception rose by 14 REVIEW cases and 4/4 attackers improved (A0, A1-Pro, A2, A3-Pro).",
+  "score_contract_id": "d2s-v1.1.0-isolation-forest-20260816",
+  "sklearn_version": "1.9.0",
+  "sklearn_version_runtime": "1.9.0",
+  "training_population": {
+    "fraud_bool": 0,
+    "months": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "n": 786838,
+    "raw_sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809"
+  },
+  "v10_fingerprint": "cfd5330f096dabb1749be447ee4da4d5f498d2599f4f22c24a0b706e570bfd94"
+}

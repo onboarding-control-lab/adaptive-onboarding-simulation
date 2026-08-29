@@ -1,0 +1,33 @@
+{
+  "profile_version": "identity-composition-proxy-v1.0.0",
+  "label": "identity_composition_proxy_construct_validity",
+  "status": "month6_construct_validity_pilot_not_dissertation_findings",
+  "inherits_governance_version": "attack-governance-v2.0.0",
+  "description": [
+    "Additional candidate-eligibility constraint on top of attack-governance-v2.",
+    "Each candidate must recombine exactly one persona/profile field and exactly one",
+    "contact/identity-consistency field relative to the original anchor.",
+    "This is a constrained recombination proxy, not document-level identity fabrication."
+  ],
+  "required_edits": 2,
+  "persona_profile_fields": [
+    "customer_age",
+    "employment_status",
+    "housing_status",
+    "prev_address_months_count",
+    "current_address_months_count"
+  ],
+  "contact_identity_fields": [
+    "name_email_similarity",
+    "email_is_free",
+    "phone_home_valid",
+    "phone_mobile_valid"
+  ],
+  "rules": [
+    "exactly_one_persona_profile_edit",
+    "exactly_one_contact_identity_edit",
+    "no_other_action_field_edits",
+    "forbidden_and_read_only_unchanged",
+    "persona_locked_after_first_submission"
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "schema_version": "final-month7-protocol-v1",
+  "protocol_id": "final-month7-a0-a3-d1-d2s-20260817",
+  "status": "FROZEN_PRE_MONTH7",
+  "phase": "final",
+  "evaluation_month": 7,
+  "month7_selection_forbidden": true,
+  "selection_statement": "NO MODEL OR DEFENCE SELECTION MAY OCCUR AFTER MONTH 7 IS OPENED.",
+  "data_months": {
+    "training_reference": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "development_calibration": [
+      6
+    ],
+    "final_evaluation": [
+      7
+    ]
+  },
+  "raw_dataset": {
+    "path": "Base.csv",
+    "sha256": "7bf10a37ce07e72e14c1b09e5efee3d27261baff4facc7da767b0474dcf9b809",
+    "physical_isolation": "impossible_monolithic_csv",
+    "ingress_contract": "load_dataset_for_protocol; month filter is the first semantic operation"
+  },
+  "budget": {
+    "K": 10,
+    "m": 2,
+    "Q": 5,
+    "invalid_charges_q": false,
+    "q_contract": "A_five_valid_defended_D1_submissions"
+  },
+  "reference_pool": {
+    "K": 10,
+    "config_path": "config/reference_pool_config.json",
+    "seed": 20260803,
+    "source_months": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "feedback_labels": [
+    "PASS",
+    "BLOCK",
+    "INVALID"
+  ],
+  "require_reference_provenance": true,
+  "attackers": {
+    "A0": {
+      "kind": "random_nonadaptive_baseline",
+      "implementation": "ConstrainedRandomAttacker",
+      "pin": "a0_random"
+    },
+    "A1": {
+      "kind": "oneshot_llm_planner",
+      "prompt_version": "a1_oneshot_v4_3_public_reference_view",
+      "model": "deepseek-v4-pro",
+      "thinking": "OFF",
+      "thinking_disabled": true,
+      "reasoning_effort": null,
+      "max_local_generation_attempts": 3
+    },
+    "A2": {
+      "kind": "public_reference_gower_search",
+      "gower_policy": "a2_public_reference_gower_v2",
+      "pin": "a2_public_reference_gower_v2"
+    },
+    "A3": {
+      "kind": "episodic_reflective_llm",
+      "prompt_version": "a3_episodic_reflective_v2_3_public_reference_view",
+      "model": "deepseek-v4-pro",
+      "thinking": "OFF",
+      "thinking_disabled": true,
+      "reasoning_effort": null
+    }
+  },
+  "d1": {
+    "role": "PRIMARY_STATISTICAL_DEFENCE",
+    "version": "frozen_c1_xgboost",
+    "artefact_id": "c1_pipeline_sha256_16=243c851b0c665c9c",
+    "threshold": 0.04724566638469696,
+    "artifact_dir": "artifacts/d1",
+    "artifact_sha256": {
+      "fitted_pipeline.joblib": "243c851b0c665c9c9ddad88941004eba6a30f98a8f446961c310f7521fb5fe4a",
+      "development_month6_threshold_selection.json": "e3920e64df96a984433da99f963860bdc3656214edd1a2f5dbc9a83468809455",
+      "config.json": "6a8c0e7d101ee8c95a30cb17c365ab447108fd8abd84c344498c79556b0bfb81"
+    }
+  },
+  "d2": {
+    "primary": {
+      "id": "d2s-v1.0.0-pairwise8-20260816",
+      "fingerprint": "cfd5330f096dabb1749be447ee4da4d5f498d2599f4f22c24a0b706e570bfd94",
+      "role": "PRIMARY",
+      "description": "D2-S v1.0 equal-mean consistency layer",
+      "artefact_path": "artifacts/d2s/d2s_reference.json",
+      "artefact_sha256": "1ca5677687ab45418a98f2bbab6237ca1ce18c00abd6485a4fb565be6e9ea26e"
+    },
+    "primary_review_thresholds": {
+      "0.05": 0.6298681955497826,
+      "0.10": 0.5918014572249943,
+      "0.15": 0.5720686786860827,
+      "source": "artifacts/d2s/benign_review_thresholds.csv"
+    },
+    "secondary_prespecified": {
+      "id": "d2s-v1.1.0-isolation-forest-20260816",
+      "role": "OPTIONAL_SECONDARY_EXPLORATORY",
+      "description": "D2-S v1.1 Isolation Forest optional offline comparison. Not primary. Must not rerun attackers or replace v1.0 after Month 7.",
+      "blocks_primary_readiness": false,
+      "config_path": "artifacts/d2s/v11/D2S_V11_IFOREST_CONFIG.json",
+      "model_artefact": "artifacts/d2s/v11/D2S_V11_IFOREST_MODEL.joblib",
+      "model_sha256": "7d72a2bbf4fc61dffdd0b4aa35148835b0f74d4b48149c645f71777fd0874d9b"
+    },
+    "exploratory": [
+      "D1-R",
+      "D2-HS"
+    ],
+    "excluded": [
+      "D2-L",
+      "D2-L V1",
+      "D2-L V2"
+    ],
+    "selection_after_month7_forbidden": true
+  },
+  "review_budgets": {
+    "primary": 0.1,
+    "sensitivity": [
+      0.05,
+      0.15
+    ]
+  },
+  "governance": {
+    "version": "attack-governance-v2.0.0",
+    "path": "config/attacker_compiled_governance.json",
+    "fingerprint": "177c7b9fec00f531932528ad4b77d7833a436b9e5705f89bf5045ff576d2ff16",
+    "file_sha256": "fcf1d3d1396bff92c0527696e29e64039a2766b6404567ffa3581fa8275a8b8c"
+  },
+  "seeds": {
+    "experiment_seed": 1,
+    "reference_pool_seed": 20260803
+  },
+  "paired_anchors": {
+    "mode": "paired_same_arena",
+    "n": 100,
+    "eligibility": [
+      "evaluation_month=7",
+      "fraud_bool=1",
+      "original_frozen_D1=BLOCK",
+      "valid_under_frozen_preprocessing",
+      "valid_under_frozen_reference_construction"
+    ],
+    "selection_rule": {
+      "status": "APPROVED",
+      "if_eligible_lt_n": "fail_closed",
+      "if_eligible_eq_n": "use_all_after_integer_id_sort_and_declared_shuffle",
+      "if_eligible_gt_n": "integer_id_sort_then_numpy_shuffle_then_take_first_n",
+      "shuffle_domain": "final_month7_paired_anchor_selection",
+      "selection_seed": 1,
+      "selection_seed_source": "reuse frozen experiment_seed; not a newly invented seed",
+      "outcome_independent": true,
+      "not_conditioned_on": [
+        "attacker_candidate_generation",
+        "later_attacker_success_or_failure",
+        "d1_decision_margin",
+        "d2_outcome",
+        "any_post_attack_result"
+      ]
+    },
+    "production_generation": "PI-approved 22 August 2026: enumerate eligible Month-7 universe, apply selection_rule with selection_seed=1 and domain final_month7_paired_anchor_selection, persist one immutable production manifest. Eligibility and issuance only; no attacker outcomes.",
+    "production_path": "runs/anchors/final_month7_paired_anchors_n100.json",
+    "dry_run_fixture": "config/final_month7_dryrun_anchors.json",
+    "month6_fingerprint_reference_only": "e4dbb498fcd82ac9b50b70448ccfaaab26b997101dbbd9503012ee5cf63b0bfc"
+  },
+  "api": {
+    "provider": "deepseek",
+    "model": "deepseek-v4-pro",
+    "thinking": "OFF",
+    "thinking_disabled": true,
+    "max_transport_retries_per_call": 2,
+    "timeout_seconds": 90.0,
+    "transport_retry_does_not_charge_Q": true,
+    "defence_feedback_regeneration_charges_Q": true,
+    "parse_local_generation_does_not_charge_Q": true,
+    "invalid_does_not_charge_Q": true
+  },
+  "output": {
+    "root": "runs/experiments/final_month7",
+    "non_overwriting": true,
+    "statuses": [
+      "RUNNING",
+      "PARTIAL",
+      "FAILED",
+      "COMPLETE"
+    ],
+    "resume_policy": "fail_closed_no_unsafe_resume"
+  },
+  "final_runner": "pipeline/scripts/run_final_month7_experiment.py",
+  "config_hash": "b11955a2bcc5a3c6819a8d144008da0e0474e273febabf5d7ae4a14ecd76907b"
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "final-month7-dryrun-anchors-v1",
+  "note": "Synthetic fixture only. Not Month-7 applications. Not used for scientific evaluation.",
+  "anchor_ids": ["900001", "900002"],
+  "sample_size": 2,
+  "month7_source": false
+}
